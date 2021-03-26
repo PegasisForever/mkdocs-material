@@ -106,11 +106,16 @@ export function watchMain(
           - Math.max(0, top    - y,  header)
           - Math.max(0, height + y - bottom)
         )
-        return {
+        const result = {
           offset: top - header,
           height,
-          active: top - header + 0.1 < y   // + 0.1 to fix floating point precision
+          active: top - header + 0.1 < y,   // + 0.1 to fix floating point precision
+          header,
+          top,
+          y
         }
+        console.log(result)
+        return result
       }),
       distinctUntilChanged((a, b) => (
         a.offset === b.offset &&
