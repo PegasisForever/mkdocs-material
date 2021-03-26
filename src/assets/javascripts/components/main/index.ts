@@ -109,7 +109,7 @@ export function watchMain(
         return {
           offset: top - header,
           height,
-          active: top - header < y
+          active: top - header + 0.1 < y   // + 0.1 to fix floating point precision
         }
       }),
       distinctUntilChanged((a, b) => (
